@@ -27,13 +27,32 @@ class App extends Component {
       information: information.filter(info => info.id !== id)
     })
   }
+
+  handleUpdate=(id, data)=>{
+    const{information}= this.state;
+    this.setState({
+      information: information.map(
+        info =>{
+          if(info.id === id){
+            return{
+              id,
+              ...data,
+            };
+          }
+          return info;
+        }
+      )
+    })
+  }
   render(){
     return (
       <div>
           <PhoneForm onCreate={this.handleCreate}/>
           <PhoneInfoList 
           onRemove={this.handleRemove}
-          data = {this.state.information}/>
+          data = {this.state.information}
+          onUpdate = {this.handleUpdate}
+          />
       </div>    
     );
   }
