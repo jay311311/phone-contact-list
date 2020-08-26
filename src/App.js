@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
-import PhoneForm from './PhoneForm';
+import PhoneForm from './Component/PhoneForm';
+import PhoneInfoList from './Component/PhoneInfoList';
+
 
 class App extends Component {
   id = 0;
@@ -18,12 +20,21 @@ class App extends Component {
      
     })
   }
+
+  handleRemove=(id)=>{
+    const {information} = this.state;
+    this.setState({
+      information: information.filter(info => info.id !== id)
+    })
+  }
   render(){
     return (
       <div>
           <PhoneForm onCreate={this.handleCreate}/>
-          {JSON.stringify(this.state.information)}
-      </div>
+          <PhoneInfoList 
+          onRemove={this.handleRemove}
+          data = {this.state.information}/>
+      </div>    
     );
   }
 }
