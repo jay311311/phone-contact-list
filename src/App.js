@@ -7,15 +7,15 @@ class App extends Component {
     information:[]
   }
 
-  handleCreate=(data)=>{
+  handleCreate = (data) => {
     const {information} = this.state
     this.setState({
-      information: information.concat({
+         //react는 push(method) 사용 x, 그대신 concat(method)을 사용해  추가 가능
        information: information.concat(Object.assign({},data,{
         id: this.id++
        }))
-        
-      })
+       
+     
     })
   }
   render(){

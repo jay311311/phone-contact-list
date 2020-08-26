@@ -9,15 +9,15 @@ class PhoneForm extends Component{
     handleChange=(event)=>{
         this.setState({
             [event.target.name] : event.target.value
-        })
+        })//[event.target.name] 은 imput의 name값이 들어간다
     }
     handleSubmit=(event)=>{
-        event.preventDefault();
+        event.preventDefault(); //page가 리로딩(reloading)되는것을 방지
         this.props.onCreate(this.state);
         this.setState({
             name:"",
             phone:"",
-        })
+        })//input의 입력내용을 제출하고 나서 초기화 시킴
     }
     
     render(){
