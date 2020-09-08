@@ -8,6 +8,12 @@ state={
     phone:""
 }
 
+shouldComponentUpdate(nextProps, nextState){
+    if(this.state !== nextState){
+        return true;
+    }
+    return this.props.info !==nextProps.info;
+}
 
 handleChange = (event) =>{
     this.setState({
@@ -36,7 +42,7 @@ if(this.state.editing){
     })
 }
 
-handleRmove=()=>{
+handleRmove = () => {
     const {info, onRemove} = this.props;
     onRemove(info.id);
 }
@@ -49,6 +55,8 @@ handleRmove=()=>{
             padding:"8px",
             margin:"8px"
         };
+
+        console.log(name);
 
         return(
           

@@ -9,7 +9,7 @@ class PhoneForm extends Component{
     handleChange=(event)=>{
         this.setState({
             [event.target.name] : event.target.value
-        })//[event.target.name] 은 imput의 name값이 들어간다
+        })//[event.target.name] 은 input의 name값이 들어간다
     }
     handleSubmit=(event)=>{
         event.preventDefault(); //page가 리로딩(reloading)되는것을 방지
