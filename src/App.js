@@ -30,6 +30,7 @@ class App extends Component {
     this.setState({
       keyword: event.target.value,
     })
+    //검색을 위한 이벤트
   }
 
   handleCreate = (data) => {
@@ -80,6 +81,7 @@ class App extends Component {
           onRemove={this.handleRemove}
           data = {this.state.information.filter(
             info => info.name.indexOf(this.state.keyword) > -1
+            // 검색필터
           )}
           onUpdate = {this.handleUpdate}
           />
