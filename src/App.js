@@ -22,7 +22,14 @@ class App extends Component {
         name:"홍길북",
         phone:"010-000-0000"
       }
-    ]
+    ],
+    keyword:"",
+  }
+
+  handleChange = (event) =>{
+    this.setState({
+      keyword: event.target.value,
+    })
   }
 
   handleCreate = (data) => {
@@ -64,9 +71,16 @@ class App extends Component {
     return (
       <div>
           <PhoneForm onCreate={this.handleCreate}/>
+          <input 
+            value={this.state.keyword}
+            onChange={this.handleChange}
+            placeholder="검색..."
+          />
           <PhoneInfoList 
           onRemove={this.handleRemove}
-          data = {this.state.information}
+          data = {this.state.information.filter(
+            info => info.name.indexOf(this.state.keyword) > -1
+          )}
           onUpdate = {this.handleUpdate}
           />
       </div>    

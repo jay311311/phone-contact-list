@@ -13,6 +13,7 @@ shouldComponentUpdate(nextProps, nextState){
         return true;
     }
     return this.props.info !==nextProps.info;
+    //불변성 위치를 위한 최적화
 }
 
 handleChange = (event) =>{
